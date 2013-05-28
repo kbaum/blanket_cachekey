@@ -62,6 +62,20 @@ describe BlanketCachekey do
 
     end
 
+    describe 'destroying a model causes blanket cache key to be invalidated for bar' do
+
+      before do
+        bar = Bar.create!
+        @old_cache_key = Bar.blanket_cachekey
+        bar.destroy
+      end
+
+      its(:blanket_cachekey){ should_not == @old_cache_key }
+
+
+    end
+
+
     
 
   end

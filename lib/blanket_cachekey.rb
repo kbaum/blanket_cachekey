@@ -1,6 +1,5 @@
 require "blanket_cachekey/version"
 require 'rails'
-require 'pry'
 
 module BlanketCachekey
 
@@ -12,12 +11,13 @@ module BlanketCachekey
   def self.included(model)
     model.class_eval do
 
-      after_save :update_blanket_cachekey
+      after_save :invalidate_blanket_cachekey
+      after_destroy :invalidate_blanket_cachekey
 
       private
 
-      def update_blanket_cachekey
-        self.class.update_blanket_cachekey
+      def invalidate_blanket_cachekey
+        self.class.invalidate_blanket_cachekey
       end
 
 
@@ -30,7 +30,7 @@ module BlanketCachekey
           end
         end
 
-        def update_blanket_cachekey
+        def invalidate_blanket_cachekey
           BlanketCachekey.cache.delete blanket_cachekey_name
         end
 
