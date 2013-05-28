@@ -19,6 +19,11 @@ end
 
 
 describe BlanketCachekey do
+
+  before :all do
+    BlanketCachekey.cache = ActiveSupport::Cache::MemoryStore.new
+  end
+
   it 'should have a version number' do
     BlanketCachekey::VERSION.should_not be_nil
   end
@@ -28,6 +33,10 @@ describe BlanketCachekey do
     subject { Bar }
 
     its(:blanket_cachekey){ should_not be_nil }
+
+    specify 'blanket_cachekey should not change if no Bar has been modified in any way' do
+      Bar.blanket_cachekey.should == Bar.blanket_cachekey
+    end
     
     describe 'adding a new model to the database causes a new blanket cache key to be created for bar' do
 
@@ -37,7 +46,6 @@ describe BlanketCachekey do
       end
 
       its(:blanket_cachekey){ should_not == @old_cache_key }
-
 
     end
 
