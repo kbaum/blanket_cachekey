@@ -1,6 +1,6 @@
 # BlanketCachekey
 
-TODO: Write a gem description
+Provides a key for caching data that should be invalidated whenever any elements are created, updated, or destroyed.
 
 ## Installation
 
@@ -18,7 +18,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Include BlanketCachekey within your ActiveRecord class:
+
+```ruby
+class Bar < ActiveRecord::Base
+
+  include BlanketCachekey
+
+end
+```
+
+Now Bar has a blanket_cachekey method which is updated whenever any instance of Bar is created, updated, or destroyed.  This key can be used
+as part of a cache key.
+
+```haml
+= cache ['bars_selector', Bar.blanket_cachekey] do
+  f.input :bars, collection: Bar.all
+```
+
+Now whenever any Bar is created, updated, or saved, the cache fragment above will be regenerated on the next hit.
+
+
+
+
+
 
 ## Contributing
 

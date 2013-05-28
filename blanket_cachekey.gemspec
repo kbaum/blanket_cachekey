@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = BlanketCachekey::VERSION
   spec.authors       = ["Karl Baum"]
   spec.email         = ["karl.baum@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Provides a cache key for caching data that should be invalidated whenever any AR objects are updated}
+  spec.summary       = %q{Provides a cache key for caching data that should be invalidated whenever any AR objects are updated}
   spec.homepage      = ""
   spec.license       = "MIT"
 
