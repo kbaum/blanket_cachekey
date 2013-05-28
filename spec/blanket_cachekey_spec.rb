@@ -38,7 +38,7 @@ describe BlanketCachekey do
       Bar.blanket_cachekey.should == Bar.blanket_cachekey
     end
     
-    describe 'adding a new model to the database causes a new blanket cache key to be created for bar' do
+    describe 'adding a new model causes a new blanket cache key to be invalidated for bar' do
 
       before do
         @old_cache_key = Bar.blanket_cachekey
@@ -46,6 +46,19 @@ describe BlanketCachekey do
       end
 
       its(:blanket_cachekey){ should_not == @old_cache_key }
+
+    end
+
+    describe 'updating a model causes blanket cache key to be invalidated for bar' do
+
+      before do
+        bar = Bar.create!
+        @old_cache_key = Bar.blanket_cachekey
+        bar.save!
+      end
+
+      its(:blanket_cachekey){ should_not == @old_cache_key }
+
 
     end
 
