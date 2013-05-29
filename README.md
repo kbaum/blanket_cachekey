@@ -1,5 +1,8 @@
 # BlanketCachekey
 
+[![Build Status](https://secure.travis-ci.org/kbaum/blanket_cachekey.png)](http://travis-ci.org/kbaum/blanket_cachekey)
+
+
 Provides a rails cache key for caching data that should be invalidated whenever any ActiveRecord instance of a specific type is created, updated, or destroyed.
 
 
