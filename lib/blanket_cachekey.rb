@@ -1,5 +1,6 @@
-require "blanket_cachekey/version"
+require 'blanket_cachekey/version'
 require 'rails'
+require 'blanket_cachekey/engine'
 
 module BlanketCachekey
 
