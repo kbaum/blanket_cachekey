@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = BlanketCachekey::VERSION
   spec.authors       = ["Karl Baum"]
   spec.email         = ["karl.baum@gmail.com"]
-  spec.description   = %q{Provides a cache key for caching data that should be invalidated whenever any AR objects are updated}
-  spec.summary       = %q{Provides a cache key for caching data that should be invalidated whenever any AR objects are updated}
-  spec.homepage      = ""
+  spec.description   = %q{Provides a rails cache key for caching data that should be invalidated whenever any ActiveRecord instance of a specific type is created, updated, or destroyed.}
+  spec.summary       = %q{Provides a rails cache key for caching data that should be invalidated whenever any ActiveRecord instance of a specific type is created, updated, or destroyed.}
+  spec.homepage      = "https://github.com/kbaum/blanket_cachekey"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

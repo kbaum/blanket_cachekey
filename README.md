@@ -1,6 +1,7 @@
 # BlanketCachekey
 
-Provides a key for caching data that should be invalidated whenever any elements are created, updated, or destroyed.
+Provides a rails cache key for caching data that should be invalidated whenever any ActiveRecord instance of a specific type is created, updated, or destroyed.
+
 
 ## Installation
 
